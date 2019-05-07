@@ -28,13 +28,6 @@ This boilerplate features all the latest tools and practices in the industry.
 - `npm run test:cover` - coverage mode
 - `npm run cypress:open` - starts cypress
 
-## Next features:
-
-- [ ] **Hot Module Replacement**: Better HMR support;
-- [ ] **CSS/Sass support**: Enable CSS/Sass support;
-- [ ] **PWA**: Turn into a PWA boilerplate;
-- [ ] **SEO**: SEO-ready;
-
 ## License
 
 MIT license, Copyright (c) 2019 Vardan Shahbazyan
