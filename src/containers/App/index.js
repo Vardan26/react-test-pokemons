@@ -14,11 +14,9 @@ class App extends Component {
         return (
             <Wrapper>
                 <Header/>
-                <main>
-                    <div className="container">
-                        <Aside/>
-                        <Pokemon/>
-                    </div>
+                <main className="main">
+                    <Aside/>
+                    <Pokemon/>
                 </main>
             </Wrapper>
         );
