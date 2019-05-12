@@ -1,9 +1,16 @@
 //FROM OUTSIDE
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
+
 //GLOBAL
+@import "../fonts/font-awesome/css/font-awesome.min.css";
 @import "reset";
 
 //SECTIONS
+@import "sections/header";
+@import "sections/aside";
+@import "sections/pokemos";
 
 //Pages
+@import "pages/home";
+

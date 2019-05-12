@@ -1,28 +1,31 @@
-import React, {Component} from 'react';
-import {inject, observer} from 'mobx-react';
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
-import Wrapper from "../../hoc/Wrapper";
-import Header from "../../components/Header";
-import Aside from "../../components/Aside";
-import Pokemon from "../../containers/Pokemons";
+import Wrapper from '../../hoc/Wrapper';
+import Header from '../../components/Header';
+import Aside from '../../components/Aside';
+import Pokemon from '../../containers/Pokemons';
+
+import { _pokemons_ } from '../../store';
 
 class App extends Component {
     componentDidMount() {
+        _pokemons_.getPokemonData();
+        _pokemons_.getPokemonDataTypes();
     }
 
     render() {
         return (
             <Wrapper>
                 <Header/>
-                <main>
-                    <div className="container">
-                        <Aside/>
-                        <Pokemon/>
-                    </div>
+                <main className="main">
+                    <Aside get getSelectedTypes={_pokemons_.getSelectedTypes}/>
+                    <Pokemon/>
                 </main>
             </Wrapper>
         );
     }
+
 }
 
-export default inject('_app_')(observer(App));
+export default inject('_pokemons_')(observer(App));
