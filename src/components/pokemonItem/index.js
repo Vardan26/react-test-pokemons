@@ -1,4 +1,5 @@
 import React from 'react';
+import pacmanLoader from  "../../assets/img/Pacman-1s-200px.svg";
 
 const PokemonItem = (props) => {
     const {
@@ -14,7 +15,7 @@ const PokemonItem = (props) => {
     props ? item =
             <li className="pokemons__item">
                 <div className="pokemons__item__avatar"
-                     style={{ backgroundImage: `url(${avatar})` }}/>
+                     style={{ backgroundImage:   `url(${avatar ? avatar : pacmanLoader}` }}/>
                 <div className='pokemons__item__cont'>
                 <span className="pokemons__item__name">
                     {name}

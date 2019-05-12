@@ -93,8 +93,7 @@ const PokemonsStore = types
 
         getSelectedTypes(currentType) {
             let data = self.pokemonData,
-                filteredData = [],
-                newData;
+                filteredData = [];
 
             //Getting all filtered types
             let newFilteredTypes = self.filteredTypes;

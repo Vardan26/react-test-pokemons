@@ -2,7 +2,6 @@ import React from 'react';
 import PokemonItem from '../../components/pokemonItem';
 import { inject, observer } from 'mobx-react';
 import ReactPaginate from 'react-paginate';
-import {_app_} from '../../store';
 
 const Pokemons = (props) => {
     // let loading  = _app_.loading;
@@ -20,12 +19,11 @@ const Pokemons = (props) => {
                         weight={pokemon.weight}
                         height={pokemon.height}
                         abilities={pokemon.abilities}/>
-                )) : 'loading.....' }
+                )) : null }
         </ul>
-            {pokemons.length >= props._pokemons_.limit ?
             <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                previousLabel={'<'}
+                nextLabel={'>'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
                 pageCount={props._pokemons_.pageCount}
@@ -35,7 +33,7 @@ const Pokemons = (props) => {
                 containerClassName={'pagination'}
                 subContainerClassName={'pages pagination'}
                 activeClassName={'active'}
-            />: null}
+            />
         </div>
     );
 };
