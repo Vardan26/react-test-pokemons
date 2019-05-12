@@ -26,25 +26,31 @@ module.exports = [
         use: ['url-loader?limit=10000', 'img-loader']
     },
     {
-        test: /\.s(a|c)ss$/,
-        use: [
-            {
-                loader: 'style-loader',
-            },
+        test: /\.module\.s(a|c)ss$/,
+        loader: [
+            'style-loader',
             {
                 loader: 'css-loader',
-                query: {
+                options: {
                     modules: true,
                     localIdentName: '[name]__[local]___[hash:base64:5]',
-                },
+                    camelCase: true
+                }
             },
             {
-                loader: 'sass-loader',
-                query: {
-                    modules: true,
-                    localIdentName: '[name]__[local]___[hash:base64:5]',
-                },
-            },
-        ],
+                loader: 'sass-loader'
+            }
+        ]
     },
+    {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        loader: [
+            'style-loader',
+            'css-loader',
+            {
+                loader: 'sass-loader'
+            }
+        ]
+    }
 ];

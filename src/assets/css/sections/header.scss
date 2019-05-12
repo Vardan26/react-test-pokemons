@@ -1,0 +1,43 @@
+.header{
+  padding: 15px;
+  border-bottom: solid 1px #D1D5E5;
+
+  .search {
+    position: relative;
+    width: calc(100% - 300px);
+    max-width: 1200px;
+    margin-right:50px;
+    margin-left: auto;
+    i {
+      position: absolute;
+      font-family: "FontAwesome", sans-serif;
+      text-align: right;
+      width: 20px;
+      display: block;
+      height: 100%;
+      right: 10px;
+      top: 10px;
+      opacity: 0.5;
+    }
+    &__input {
+      height: 35px;
+      line-height: 35px;
+      width: 100%;
+      padding: 0 16px;
+      display: block;
+      border: 1px solid #D1D5E5;
+      background: #F6F7FA;
+    }
+    &__icon {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 14px;
+      right: 8px;
+      top: 12px;
+      z-index: 1;
+    }
+  }
+}

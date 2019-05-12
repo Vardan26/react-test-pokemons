@@ -1,31 +1,41 @@
-import React, {Component} from 'react';
-import {inject, observer} from 'mobx-react';
+import React from 'react';
+import PokemonItem from '../../components/pokemonItem';
+import { inject, observer } from 'mobx-react';
+import ReactPaginate from 'react-paginate';
 
-import PokemonItem from "../../components/pokemonItem";
-
-class Pokemons extends Component {
-
-    async componentDidMount() {
-        await  this.props._pokemons_.doGetPokemons();
-    }
-    render() {
-        const {pokemons} = this.props._pokemons_;
-        // console.log(pokemons);
-        return (
-            <ul className="pokemons">
-                {pokemons.length ?
-                    pokemons.map((pokemon, i) => (
-                        <PokemonItem
+const Pokemons = (props) => {
+    // let loading  = _app_.loading;
+    let pokemons = props._pokemons_.pokemonDataCopy;
+    return (
+        <div className="pokemons">
+        <ul className="pokemons__list">
+            {pokemons.length ?
+                pokemons.map((pokemon, i) => (
+                    <PokemonItem
                         key={i}
-                        name={pokemon.species.name}
-                        avatar={pokemon.sprites.front_default || "avatar"}
-                        type={pokemon.types}
-                        content={pokemon.content || "some content"}/>
-                    )) : null
-                }
-            </ul>
-        );
-    }
-}
+                        name={pokemon.name}
+                        avatar={pokemon.avatar}
+                        types={pokemon.types}
+                        weight={pokemon.weight}
+                        height={pokemon.height}
+                        abilities={pokemon.abilities}/>
+                )) : null }
+        </ul>
+            <ReactPaginate
+                previousLabel={'<'}
+                nextLabel={'>'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={props._pokemons_.pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={props._pokemons_.handlePageClick}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'active'}
+            />
+        </div>
+    );
+};
 
 export default inject('_pokemons_')(observer(Pokemons));
