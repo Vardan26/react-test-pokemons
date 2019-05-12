@@ -5,11 +5,10 @@ import { inject, observer } from 'mobx-react';
 const Header = (props) => {
     return (
         <header className="header">
-            <div className="container">
-                <label>
-                    <input onChange={props._pokemons_.getFilteredList} type="text" className="header__search"/>
-                </label>
-            </div>
+                <div className="search">
+                    <i className="fa fa-search"/>
+                    <input onChange={props._pokemons_.getFilteredList} type="text" className="search__input"/>
+                </div>
         </header>
     );
 };

@@ -2,14 +2,15 @@ import React from 'react';
 import PokemonItem from '../../components/pokemonItem';
 import { inject, observer } from 'mobx-react';
 import ReactPaginate from 'react-paginate';
-
+import {_app_} from '../../store';
 
 const Pokemons = (props) => {
-    const pokemons = props._pokemons_.pokemonDataCopy;
+    // let loading  = _app_.loading;
+    let pokemons = props._pokemons_.pokemonDataCopy;
     return (
         <div className="pokemons">
         <ul className="pokemons__list">
-            {
+            {pokemons.length ?
                 pokemons.map((pokemon, i) => (
                     <PokemonItem
                         key={i}
@@ -19,22 +20,22 @@ const Pokemons = (props) => {
                         weight={pokemon.weight}
                         height={pokemon.height}
                         abilities={pokemon.abilities}/>
-                ))
-            }
+                )) : 'loading.....' }
         </ul>
+            {pokemons.length >= props._pokemons_.limit ?
             <ReactPaginate
                 previousLabel={'previous'}
                 nextLabel={'next'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
-                // pageCount={this.state.pageCount}
+                pageCount={props._pokemons_.pageCount}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={props._pokemons_.handlePageClick}
                 containerClassName={'pagination'}
                 subContainerClassName={'pages pagination'}
                 activeClassName={'active'}
-            />
+            />: null}
         </div>
     );
 };
