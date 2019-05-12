@@ -56,3 +56,15 @@
     }
   }
 }
+@media (max-width: 786px) {
+  .aside{
+    width: 100%;
+    .types{
+      display: flex;
+      flex-wrap: wrap;
+      .type__item{
+        width: 33%;
+      }
+    }
+  }
+}

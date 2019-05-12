@@ -1,4 +1,4 @@
-.main{
+.main {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -6,3 +6,10 @@
   min-height: 100vh;
 }
 
+
+@media (max-width: 786px) {
+  .main {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
