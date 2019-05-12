@@ -10,6 +10,7 @@ import App from './containers/App';
 
 const store = {_app_,  _pokemons_};
 
+
 ReactDOM.render(
     <BrowserRouter>
         <Fragment>

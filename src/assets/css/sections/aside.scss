@@ -1,0 +1,58 @@
+.aside{
+  width: 250px;
+  padding: 30px 0 0 20px;
+  .type{
+    &__item{
+      margin: 10px 0;
+      &__name{
+        margin-left: 6px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+.check {
+  &-label {
+    display: flex;
+    align-items: center;
+  }
+  &-input {
+    &__wrap {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      margin: 0 5px;
+      input {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        &:checked {
+          & + .check-input__span {
+            border: 1px solid #6C5BF6;
+            background: #6C5BF6;
+            width: 100%;
+            height: 100%;
+            font-family: "FontAwesome", sans-serif;
+            &:before {
+              content: "\f00c";
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    &__span {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border: 1px solid #75757575;
+      box-sizing: border-box;
+      border-radius: 2px;
+      font-size: 10px;
+      text-align: center;
+      line-height: 16px;
+    }
+  }
+}

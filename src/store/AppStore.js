@@ -1,10 +1,16 @@
-import {types} from 'mobx-state-tree';
+import { types } from 'mobx-state-tree';
+import { requestService } from '../hoc/RequestService';
 
 const AppStore = types
     .model('Common', {
-        loading: types.boolean,
-    });
+        loading: true
+    })
 
-const _app_ = AppStore.create({loading: true});
+    .actions(self => ({
+        setLoadingState() {
+            self.loading = !self.loading;
+        },
+    }));
+const _app_ = AppStore.create({ loading: true });
 
-export {_app_};
+export { _app_ };

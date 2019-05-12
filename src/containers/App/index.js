@@ -19,7 +19,7 @@ class App extends Component {
             <Wrapper>
                 <Header/>
                 <main className="main">
-                    <Aside/>
+                    <Aside get getSelectedTypes={_pokemons_.getSelectedTypes}/>
                     <Pokemon/>
                 </main>
             </Wrapper>
